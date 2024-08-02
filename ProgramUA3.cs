@@ -73,7 +73,7 @@ namespace AssuanceUA3
                 Note = note;
             }
 
-            // Représentation en chaîne de caractères de la note
+            // Représentation en chaîne de caractères de la note et affichage de l'etudiant
             public override string ToString()
             {
                 return $"Étudiant: {NumeroEtudiant}, Cours: {NumeroCours}, Note: {Note}";
