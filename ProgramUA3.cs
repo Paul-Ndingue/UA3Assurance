@@ -146,27 +146,37 @@ namespace AssuanceUA3
 
         private static void AfficherNotes()
         {
+            // Affiche un en-tête pour la section d'affichage des notes d'un étudiant
             Console.WriteLine("\n--- Afficher les Notes d'un Étudiant ---");
             Console.Write("Numéro d'Étudiant à afficher : ");
+            
+                // Lit l'entrée utilisateur et la convertit en entier, représentant le numéro de l'étudiant
             int numeroEtudiant = int.Parse(Console.ReadLine());
 
+                // Recherche dans la collection 'etudiants' l'étudiant avec le numéro d'étudiant donné
             var etudiant = etudiants.FirstOrDefault(e => e.NumeroEtudiant == numeroEtudiant);
+            
+                // Si l'étudiant n'est pas trouvé, affiche un message d'erreur et quitte la méthode
             if (etudiant == null)
             {
                 Console.WriteLine("Étudiant introuvable.");
                 return;
             }
 
+                // Recherche toutes les notes de l'étudiant dans la collection 'notes'
             var etudiantNotes = notes.Where(n => n.NumeroEtudiant == numeroEtudiant).ToList();
             Console.WriteLine($"Relevé de notes pour l'Étudiant {etudiant.Nom} {etudiant.Prenom} ({numeroEtudiant}) :");
 
+              // Parcourt toutes les notes de l'étudiant
             foreach (var note in etudiantNotes)
             {
+                        // Recherche les informations du cours correspondant à la note
                 var coursInfo = cours.FirstOrDefault(c => c.NumeroCours == note.NumeroCours);
                 if (coursInfo != null)
                 {
                     Console.WriteLine($"{coursInfo.Titre}: {note.Note}");
                 }
+                        // Si le cours n'est pas trouvé, affiche un message d'erreur pour ce numéro de cours
                 else
                 {
                     Console.WriteLine($"Cours introuvable pour le numéro de cours {note.NumeroCours}");
@@ -181,13 +191,11 @@ namespace AssuanceUA3
             // Boucle principale du menu
             while (true)
             {
-                // Affichage du menu
+                // Affichage du menu de l'application
                 Console.WriteLine("\n--- Gestion des Notes des Étudiants ---");
                 Console.WriteLine("1. Ajouter un Étudiant");
-              //  Console.WriteLine("2. Ajouter un Cours");
-              //  Console.WriteLine("3. Ajouter une Note");
-              //  Console.WriteLine("4. Afficher les Notes d'un Étudiant");
-                Console.WriteLine("5. Sauvegarder les Données");
+                Console.WriteLine("2. Afficher les Notes d'un Étudiant");
+                Console.WriteLine("3. Sauvegarder les Données");
                 Console.Write("Choisissez une option : ");
 
                 // Lecture du choix de l'utilisateur
