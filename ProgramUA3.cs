@@ -153,6 +153,7 @@ namespace AssuanceUA3
                 // Lit l'entrée utilisateur et la convertit en entier, représentant le numéro de l'étudiant
             int numeroEtudiant = int.Parse(Console.ReadLine());
 
+                
                 // Recherche dans la collection 'etudiants' l'étudiant avec le numéro d'étudiant donné
             var etudiant = etudiants.FirstOrDefault(e => e.NumeroEtudiant == numeroEtudiant);
             
@@ -203,21 +204,26 @@ namespace AssuanceUA3
 
                 // Exécution de l'option choisie
                 switch (choix)
-                {
+                { 
+                    
+                    // Si l'utilisateur choisit "1", appeler les méthodes pour ajouter un étudiant, un cours et une note
                     case "1":
-                        AjouterEtudiant();
+                        AjouterEtudiant(); // Ajoute un étudiant
                         Console.WriteLine();
-                        AjouterCours();
+                        AjouterCours();// Ajoute un cours
                         Console.WriteLine();
-                        AjouterNote();
+                        AjouterNote();// Ajoute une note
                         Console.WriteLine("L'etudiant et ses informations ont ete enregistrer avec succes");
                         break;
+                    
+                    // Si l'utilisateur choisit "2", appeler la méthode pour afficher les notes d'un étudiant
                     case "2":
                         AfficherNotes();
                         break;
                     case "3":
-                    //    SauvegarderDonnees();
+                       SauvegarderDonnees();// Sauvegarde les données
                         break;
+                                // Si l'utilisateur choisit une option invalide, afficher un message d'erreur
                     default:
                         Console.WriteLine("Option invalide. Veuillez réessayer.");
                         break;
