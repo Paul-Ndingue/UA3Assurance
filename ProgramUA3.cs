@@ -80,44 +80,76 @@ namespace AssuanceUA3
             }
         }
 
-        private static void AjouterEtudiant()
-        {
+       private static void AjouterEtudiant(){
+            // Affiche un en-tête pour la section d'ajout d'un étudiant
             Console.WriteLine("\n--- Ajouter un Étudiant ---");
+            
+            // Demande le numéro de l'étudiant et le lit depuis la console
             Console.Write("Numéro d'Étudiant : ");
             int numeroEtudiant = int.Parse(Console.ReadLine());
+            
+            // Demande le nom de l'étudiant et le lit depuis la console
             Console.Write("Nom : ");
             string nom = Console.ReadLine();
+            
+            // Demande le prénom de l'étudiant et le lit depuis la console
             Console.Write("Prénom : ");
             string prenom = Console.ReadLine();
+            
+            // Ajoute un nouvel objet Etudiant à la liste des étudiants
             etudiants.Add(new Etudiant(numeroEtudiant, nom, prenom));
-            Console.WriteLine();//"Étudiant ajouté avec succès !");
+            
+            // Affiche un message de confirmation (commenté pour l'instant)
+            Console.WriteLine(); // "Étudiant ajouté avec succès !");
         }
 
         private static void AjouterNote()
         {
+            // Affiche un en-tête pour la section d'ajout d'une note
             Console.WriteLine("\n--- Ajouter une Note ---");
+            
+            // Demande le numéro de l'étudiant et le lit depuis la console
             Console.Write("Numéro d'Étudiant : ");
             int numeroEtudiant = int.Parse(Console.ReadLine());
+            
+            // Demande le numéro du cours et le lit depuis la console
             Console.Write("Numéro du Cours : ");
             int numeroCours = int.Parse(Console.ReadLine());
+            
+            // Demande la note et la lit depuis la console
             Console.Write("Note : ");
             double note = double.Parse(Console.ReadLine());
+            
+            // Ajoute un nouvel objet Notes à la liste des notes
             notes.Add(new Notes(numeroEtudiant, numeroCours, note));
-            Console.WriteLine();// "Note ajoutée avec succès !");
+            
+            // Affiche un message de confirmation (commenté pour l'instant)
+            Console.WriteLine(); // "Note ajoutée avec succès !");
         }
 
-        private static void AjouterCours()
-        {
+    private static void AjouterCours()
+    {
+            // Affiche un en-tête pour la section d'ajout d'un cours
             Console.WriteLine("\n--- Ajouter un Cours ---");
+                
+            // Demande le numéro du cours et le lit depuis la console
             Console.Write("Numéro du Cours : ");
-            int numeroCours = int.Parse(Console.ReadLine());
+             int numeroCours = int.Parse(Console.ReadLine());
+            
+            // Demande le code du cours et le lit depuis la console
             Console.Write("Code : ");
             string code = Console.ReadLine();
+                
+            // Demande le titre du cours et le lit depuis la console
             Console.Write("Titre : ");
             string titre = Console.ReadLine();
-            cours.Add(new Cours(numeroCours, code, titre));
-            Console.WriteLine();// "Cours ajouté avec succès !");
-        }
+                
+            // Ajoute un nouvel objet Cours à la liste des cours
+           cours.Add(new Cours(numeroCours, code, titre));
+                
+           // Affiche un message de confirmation (commenté pour l'instant)
+               Console.WriteLine(); // "Cours ajouté avec succès !");
+    }
 
         private static void AfficherNotes()
         {
